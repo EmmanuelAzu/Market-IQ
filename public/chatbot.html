@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/chatbot.css" defer>
+
+    <style>
+      /* Define keyframes for horizontal scrolling ticker */
+      @keyframes ticker {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+      }
+      /* Apply the ticker animation */
+      .ticker-animation {
+        animation: ticker 55s linear infinite;
+      }
+    </style>
+    
+</head>
+<body class="bg-gray-100">
+
+     <!-- Navigation Bar -->
+  <nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex-shrink-0 flex items-center text-blue-600 font-bold text-xl">
+          MarketIQ
+        </div>
+        <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
+          <a href="homepage.html" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-indigo-500 hover:text-gray-700">
+            Home
+          </a>
+          <a href="stockviewer.html" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-indigo-500 hover:text-gray-700">
+            Stock Viewer
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Ticker Section-->
+  <div class="overflow-hidden whitespace-nowrap bg-white-200 py-2">
+    <div class="inline-block ticker-animation">
+
+      <!-- AAPL -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/apple.com" alt="Apple Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Apple</span>
+          <span class="text-xs text-gray-500">AAPL</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- MSFT -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Microsoft</span>
+          <span class="text-xs text-gray-500">MSFT</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- GOOGL -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/google.com" alt="Alphabet Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Alphabet</span>
+          <span class="text-xs text-gray-500">GOOGL</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- AMZN -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/amazon.com" alt="Amazon Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Amazon</span>
+          <span class="text-xs text-gray-500">AMZN</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- TSLA -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/tesla.com" alt="Tesla Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Tesla</span>
+          <span class="text-xs text-gray-500">TSLA</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- META -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/facebook.com" alt="Meta Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Meta</span>
+          <span class="text-xs text-gray-500">META</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- NFLX -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/netflix.com" alt="Netflix Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Netflix</span>
+          <span class="text-xs text-gray-500">NFLX</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- NVDA -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/nvidia.com" alt="Nvidia Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Nvidia</span>
+          <span class="text-xs text-gray-500">NVDA</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- AMD -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/amd.com" alt="AMD Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">AMD</span>
+          <span class="text-xs text-gray-500">AMD</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- ORCL -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/oracle.com" alt="Oracle Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Oracle</span>
+          <span class="text-xs text-gray-500">ORCL</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- BA (Boeing) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/boeing.com" alt="Boeing Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Boeing</span>
+          <span class="text-xs text-gray-500">BA</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- JPM (JPMorgan Chase) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/jpmorganchase.com" alt="JPMorgan Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">JPMorgan Chase</span>
+          <span class="text-xs text-gray-500">JPM</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- XOM (Exxon Mobil) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/exxonmobil.com" alt="Exxon Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Exxon Mobil</span>
+          <span class="text-xs text-gray-500">XOM</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- WMT (Walmart) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/walmart.com" alt="Walmart Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Walmart</span>
+          <span class="text-xs text-gray-500">WMT</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- V (Visa) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/visa.com" alt="Visa Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Visa</span>
+          <span class="text-xs text-gray-500">V</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- DIS (Disney) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/disney.com" alt="Disney Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Disney</span>
+          <span class="text-xs text-gray-500">DIS</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- HD (Home Depot) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/homedepot.com" alt="Home Depot Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Home Depot</span>
+          <span class="text-xs text-gray-500">HD</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- ADBE (Adobe) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/adobe.com" alt="Adobe Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Adobe</span>
+          <span class="text-xs text-gray-500">ADBE</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- BABA (Alibaba) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/alibaba.com" alt="Alibaba Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Alibaba</span>
+          <span class="text-xs text-gray-500">BABA</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- PFE (Pfizer) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/pfizer.com" alt="Pfizer Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Pfizer</span>
+          <span class="text-xs text-gray-500">PFE</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- T (AT&T) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/att.com" alt="AT&T Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">AT&T</span>
+          <span class="text-xs text-gray-500">T</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- CVX (Chevron) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/chevron.com" alt="Chevron Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Chevron</span>
+          <span class="text-xs text-gray-500">CVX</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- NKE (Nike) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/nike.com" alt="Nike Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Nike</span>
+          <span class="text-xs text-gray-500">NKE</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- WFC (Wells Fargo) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/wellsfargo.com" alt="Wells Fargo Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Wells Fargo</span>
+          <span class="text-xs text-gray-500">WFC</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- GE (General Electric) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/ge.com" alt="GE Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">General Electric</span>
+          <span class="text-xs text-gray-500">GE</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- KO (Coca-Cola) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/coca-colacompany.com" alt="Coca-Cola Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Coca-Cola</span>
+          <span class="text-xs text-gray-500">KO</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- PEP (PepsiCo) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/pepsico.com" alt="Pepsi Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">PepsiCo</span>
+          <span class="text-xs text-gray-500">PEP</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- CRM (Salesforce) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Salesforce</span>
+          <span class="text-xs text-gray-500">CRM</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- BAC (Bank of America) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://img.logo.dev/bankofamerica.com?token=pk_MwLYTS_VT4mDPX59xEhraQ&retina=true" alt="Bank of America Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Bank of America</span>
+          <span class="text-xs text-gray-500">BAC</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- UPS -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/ups.com" alt="UPS Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">UPS</span>
+          <span class="text-xs text-gray-500">UPS</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+
+      <!-- AAPL -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/apple.com" alt="Apple Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Apple</span>
+          <span class="text-xs text-gray-500">AAPL</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- MSFT -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Microsoft</span>
+          <span class="text-xs text-gray-500">MSFT</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- GOOGL -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/google.com" alt="Alphabet Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Alphabet</span>
+          <span class="text-xs text-gray-500">GOOGL</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- AMZN -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/amazon.com" alt="Amazon Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Amazon</span>
+          <span class="text-xs text-gray-500">AMZN</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- TSLA -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/tesla.com" alt="Tesla Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Tesla</span>
+          <span class="text-xs text-gray-500">TSLA</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- META -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/facebook.com" alt="Meta Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Meta</span>
+          <span class="text-xs text-gray-500">META</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- NFLX -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/netflix.com" alt="Netflix Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Netflix</span>
+          <span class="text-xs text-gray-500">NFLX</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- NVDA -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/nvidia.com" alt="Nvidia Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Nvidia</span>
+          <span class="text-xs text-gray-500">NVDA</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- AMD -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/amd.com" alt="AMD Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">AMD</span>
+          <span class="text-xs text-gray-500">AMD</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- ORCL -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/oracle.com" alt="Oracle Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Oracle</span>
+          <span class="text-xs text-gray-500">ORCL</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- BA (Boeing) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/boeing.com" alt="Boeing Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Boeing</span>
+          <span class="text-xs text-gray-500">BA</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- JPM (JPMorgan Chase) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/jpmorganchase.com" alt="JPMorgan Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">JPMorgan Chase</span>
+          <span class="text-xs text-gray-500">JPM</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- XOM (Exxon Mobil) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/exxonmobil.com" alt="Exxon Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Exxon Mobil</span>
+          <span class="text-xs text-gray-500">XOM</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- WMT (Walmart) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/walmart.com" alt="Walmart Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Walmart</span>
+          <span class="text-xs text-gray-500">WMT</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- V (Visa) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/visa.com" alt="Visa Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Visa</span>
+          <span class="text-xs text-gray-500">V</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- DIS (Disney) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/disney.com" alt="Disney Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Disney</span>
+          <span class="text-xs text-gray-500">DIS</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- HD (Home Depot) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/homedepot.com" alt="Home Depot Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Home Depot</span>
+          <span class="text-xs text-gray-500">HD</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- ADBE (Adobe) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/adobe.com" alt="Adobe Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Adobe</span>
+          <span class="text-xs text-gray-500">ADBE</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- BABA (Alibaba) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/alibaba.com" alt="Alibaba Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Alibaba</span>
+          <span class="text-xs text-gray-500">BABA</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- PFE (Pfizer) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/pfizer.com" alt="Pfizer Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Pfizer</span>
+          <span class="text-xs text-gray-500">PFE</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- T (AT&T) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/att.com" alt="AT&T Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">AT&T</span>
+          <span class="text-xs text-gray-500">T</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- CVX (Chevron) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/chevron.com" alt="Chevron Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Chevron</span>
+          <span class="text-xs text-gray-500">CVX</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- NKE (Nike) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/nike.com" alt="Nike Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Nike</span>
+          <span class="text-xs text-gray-500">NKE</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- WFC (Wells Fargo) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/wellsfargo.com" alt="Wells Fargo Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Wells Fargo</span>
+          <span class="text-xs text-gray-500">WFC</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- GE (General Electric) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/ge.com" alt="GE Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">General Electric</span>
+          <span class="text-xs text-gray-500">GE</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- KO (Coca-Cola) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/coca-colacompany.com" alt="Coca-Cola Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Coca-Cola</span>
+          <span class="text-xs text-gray-500">KO</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- PEP (PepsiCo) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/pepsico.com" alt="Pepsi Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">PepsiCo</span>
+          <span class="text-xs text-gray-500">PEP</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- CRM (Salesforce) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/salesforce.com" alt="Salesforce Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Salesforce</span>
+          <span class="text-xs text-gray-500">CRM</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- BAC (Bank of America) -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://img.logo.dev/bankofamerica.com?token=pk_MwLYTS_VT4mDPX59xEhraQ&retina=true" alt="Bank of America Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">Bank of America</span>
+          <span class="text-xs text-gray-500">BAC</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+      <!-- UPS -->
+      <div class="inline-flex items-center bg-white rounded-full shadow m-1 px-3 py-2 space-x-3">
+        <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full overflow-hidden">
+          <img src="https://logo.clearbit.com/ups.com" alt="UPS Logo" class="object-contain w-full h-full" />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-800">UPS</span>
+          <span class="text-xs text-gray-500">UPS</span>
+        </div>
+        <div class="ml-4 text-right">
+          <p class="text-sm font-semibold text-gray-800">XXX.XX USD</p>
+          <p class="text-xs text-red-500">-Y.YY%</p>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+  <h1 class="text-4xl font-bold text-center text-blue-600 mb-6">ChatBot</h1>
+
+    <div id="chat-container">
+        <div id="messages"></div>
+        <input type="text" id="user-input" placeholder="Ask me about the US stock market..." class="w-full p-2 border border-gray-300 rounded" />
+        <button id="send-btn" class="w-full bg-blue-500 text-white p-2 rounded">Send</button>
+    </div>
+
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
