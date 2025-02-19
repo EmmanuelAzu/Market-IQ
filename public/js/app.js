@@ -8,9 +8,7 @@
  *     scrolling cards with image + headline.
  ************************************************************/
 
-/** 1. API KEYS */
-const AV_API_KEY = '3L8Y8ID29UHBRGHX'; // e.g., '3L8Y8ID29UHBRGHX'
-const FINNHUB_API_KEY = 'ctlibb9r01qv7qq2di5gctlibb9r01qv7qq2di60'; // e.g., 'ctlibb9r01qv7qq2di5gctlibb9r01qv7qq2di60'
+//I removed the API keys
 
 /** 2. DOM Elements */
 const stockSymbolInput = document.getElementById('stockSymbol');
